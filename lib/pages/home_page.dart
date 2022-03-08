@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Catlog App"),
       ),
-       body: Center(
+      body: Center(
         child: Container(
           child: Text("welcome to $days myapp by $name"),
         ),
@@ -17,4 +17,4 @@ class HomePage extends StatelessWidget {
       drawer: Drawer(),
     );
   }
-} 
+}
