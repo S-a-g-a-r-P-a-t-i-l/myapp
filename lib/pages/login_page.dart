@@ -37,12 +37,12 @@ class _LoginPageState extends State<LoginPage> {
               'assets/images/login_image.png',
               fit: BoxFit.cover,
             ),
-            SizedBox(height: 20.0),
+            SizedBox(height: 50.0),
             Text(
               "welcome $name",
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 40.0),
+            SizedBox(height: 50.0),
             Padding(
               padding:
                   const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
@@ -50,7 +50,12 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   TextFormField(
                     decoration: InputDecoration(
-                        hintText: "Enter Username", labelText: "UserName"),
+                        hintText: "Enter Username", labelText: "UserName",
+                        prefixIcon: Icon(Icons.people,
+                         color: Color.fromARGB(255, 36, 225, 134),),
+                        hintStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold), 
+                      labelStyle: TextStyle(fontSize: 18 ,color: Colors.black) ),
+                        
                     validator: (String? value) {
                       if (value != null && value.isEmpty) {
                         return "Username cannot be empty";
@@ -62,10 +67,16 @@ class _LoginPageState extends State<LoginPage> {
                       setState(() {});
                     },
                   ),
+                   SizedBox(height: 20.0),
                   TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
-                        hintText: "Enter Password", labelText: "Password"),
+                        hintText: "Enter Password", labelText: "Password",
+                         prefixIcon: Icon(Icons.lock,
+                         color: Color.fromARGB(255, 31, 234, 136)),
+                        hintStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold), 
+                      labelStyle: TextStyle(fontSize: 18 ,color: Colors.black),
+                     ),
                     validator: (value) {
                       if (value != null && value.isEmpty) {
                         return "Password cannot be empty";
@@ -78,9 +89,10 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
+             SizedBox(height: 30.0),
             Material(
               borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
-              color: Colors.deepPurple,
+              color: Color.fromARGB(255, 133, 223, 23),
               child: InkWell(
                 onTap: () => moveToHome(context),
                 child: AnimatedContainer(
@@ -89,11 +101,12 @@ class _LoginPageState extends State<LoginPage> {
                   alignment: Alignment.center,
                   duration: Duration(seconds: 1),
                   child: changeButton
-                      ? Icon(Icons.done, color: Colors.white)
+                      ? Icon(Icons.done,
+                          color: Color.fromARGB(255, 249, 249, 249))
                       : Text(
                           "Login",
                           style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Colors.white),
                         ),
