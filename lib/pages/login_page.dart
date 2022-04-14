@@ -1,15 +1,22 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:myapp/main.dart';
 import 'package:myapp/utils/routes.dart';
 
+
+
 class LoginPage extends StatefulWidget {
+  
   @override
   State<LoginPage> createState() => _LoginPageState();
+  
 }
 
 class _LoginPageState extends State<LoginPage> {
   String name = "";
+ 
   bool changeButton = false;
   final _formKey = GlobalKey<FormState>();
   moveToHome(BuildContext context) async {
@@ -25,8 +32,14 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+ 
+ late String username;
+  late String password;
+  
   @override
+  
   Widget build(BuildContext context) {
+   
     return Material(
         child: SingleChildScrollView(
       child: Form(
@@ -50,12 +63,16 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   TextFormField(
                     decoration: InputDecoration(
-                        hintText: "Enter Username", labelText: "UserName",
-                        prefixIcon: Icon(Icons.people,
-                         color: Color.fromARGB(255, 36, 225, 134),),
-                        hintStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold), 
-                      labelStyle: TextStyle(fontSize: 18 ,color: Colors.black) ),
-                        
+                        hintText: "Enter Username",
+                        labelText: "UserName",
+                        prefixIcon: Icon(
+                          Icons.people,
+                          color: Color.fromARGB(255, 36, 225, 134),
+                        ),
+                        hintStyle: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                        labelStyle:
+                            TextStyle(fontSize: 18, color: Colors.black)),
                     validator: (String? value) {
                       if (value != null && value.isEmpty) {
                         return "Username cannot be empty";
@@ -63,20 +80,22 @@ class _LoginPageState extends State<LoginPage> {
                       return null;
                     },
                     onChanged: (value) {
-                      name = value;
-                      setState(() {});
+                      username = value;
+                      
                     },
                   ),
-                   SizedBox(height: 20.0),
+                  SizedBox(height: 20.0),
                   TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
-                        hintText: "Enter Password", labelText: "Password",
-                         prefixIcon: Icon(Icons.lock,
-                         color: Color.fromARGB(255, 31, 234, 136)),
-                        hintStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold), 
-                      labelStyle: TextStyle(fontSize: 18 ,color: Colors.black),
-                     ),
+                      hintText: "Enter Password",
+                      labelText: "Password",
+                      prefixIcon: Icon(Icons.lock,
+                          color: Color.fromARGB(255, 31, 234, 136)),
+                      hintStyle:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      labelStyle: TextStyle(fontSize: 18, color: Colors.black),
+                    ),
                     validator: (value) {
                       if (value != null && value.isEmpty) {
                         return "Password cannot be empty";
@@ -85,17 +104,22 @@ class _LoginPageState extends State<LoginPage> {
                       }
                       return null;
                     },
+                    onChanged: (value) {
+                      password = value;
+                      
+                    },
                   )
                 ],
               ),
             ),
-             SizedBox(height: 30.0),
+            SizedBox(height: 30.0),
             Material(
               borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
               color: Color.fromARGB(255, 133, 223, 23),
               child: InkWell(
-                onTap: () => moveToHome(context),
-                child: AnimatedContainer(
+                 onTap: () => moveToHome(context),
+
+                 child: AnimatedContainer(
                   width: changeButton ? 50 : 150,
                   height: 50,
                   alignment: Alignment.center,

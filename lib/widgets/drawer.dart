@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../pages/Contactus.dart';
+import '../pages/home_page.dart';
+import '../pages/profile.dart';
+import '../pages/products.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -24,6 +28,12 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
+               onTap: (() {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new HomePage()));
+              }),
               leading: Icon(CupertinoIcons.home, color: Colors.white),
               title: Text(
                 "Home",
@@ -32,6 +42,12 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
+               onTap: (() {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new Product()));
+              }),
               leading: Icon(CupertinoIcons.cube_box, color: Colors.white),
               title: Text(
                 "Products",
@@ -40,6 +56,12 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
+               onTap: (() {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new Profile()));
+              }),
               leading:
                   Icon(CupertinoIcons.profile_circled, color: Colors.white),
               title: Text(
@@ -49,6 +71,12 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
+              onTap: (() {
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new ContactUs()));
+              }),
               leading: Icon(CupertinoIcons.mail, color: Colors.white),
               title: Text(
                 "Contact Us",
